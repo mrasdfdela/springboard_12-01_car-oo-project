@@ -57,14 +57,13 @@ class Garage {
   }
 
   add(thing){
-    // if (typeof vehicle !== Car) { ==> is there a 'proper' way to do this?
-    if (!(thing instanceof Vehicle)) {
-      console.log(`Only vehicles are allowed in here!`);
+    if (!(thing instanceof Vehicle)) { // ==> is there a 'proper' way to do this?
+      return `Only vehicles are allowed in here!`;
     } else if (this.vehicles.length >= this.capacity) {
-      console.log(`Sorry, we're  full.`);
+      return `Sorry, we're  full.`;
     } else {
       this.vehicles.push(thing);
-      console.log("Vehicle added!");
+      return "Vehicle added!";
     }
   }
 }
@@ -73,7 +72,7 @@ let garage = new Garage(2);
 garage.vehicles; // []
 console.log(garage.add(new Car("Hyundai", "Elantra", 2015))); // "Vehicle added!"
 garage.vehicles; // [Car]
-// console.log(garage.add("Taco")); // "Only vehicles are allowed in here!"
+console.log(garage.add("Taco")); // "Only vehicles are allowed in here!"
 
 console.log(garage.add(new Motorcycle("Honda", "Nighthawk", 2000)));// "Vehicle added!"
 garage.vehicles; // [Car, Motorcycle]
