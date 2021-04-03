@@ -57,15 +57,14 @@ class Garage {
   }
 
   add(thing){
-    console.log('asdf')
     // if (typeof vehicle !== Car) { ==> is there a 'proper' way to do this?
     if (!(thing instanceof Vehicle)) {
-      throw new Error(`Only vehicles are allowed in here!`);
+      console.log(`Only vehicles are allowed in here!`);
     } else if (this.vehicles.length >= this.capacity) {
-      throw new Error(`Sorry, we're  full.`);
+      console.log(`Sorry, we're  full.`);
     } else {
       this.vehicles.push(thing);
-      return "Vehicle added!";
+      console.log("Vehicle added!");
     }
   }
 }
